@@ -1,12 +1,20 @@
 import './App.css';
 import Appbar from "./components/Appbar"
 import Student from "./components/Student"
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <Appbar/>
-        <Student/>
-    </div>
+      <BrowserRouter>
+        <Routes>
+            <Route path='/' element={<div className="App">
+                <Appbar/>
+                <Student/>
+            </div>} />
+            <Route path='login' element={<div> </div>}/>
+
+        </Routes>
+      </BrowserRouter>
+
   );
 }
 
