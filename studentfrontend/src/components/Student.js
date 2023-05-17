@@ -46,11 +46,13 @@ export default function Student() {
             value={address}
                        onChange={(e) => setAddress(e.target.value)}
             />
-            {error && <div><h4 style={{justifyContent: "center"}}>{ error }</h4></div> }
+
             <Button variant="contained" color="secondary" onClick={handleclick}>
                 Submit
             </Button>
+
         </Box>
+                {error && <div><h5>{ error }</h5> </div>}
                 </Paper>
             </Container>
     );
