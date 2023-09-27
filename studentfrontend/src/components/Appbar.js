@@ -7,8 +7,10 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import {Link} from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 export default function Appbar() {
+    const location = useLocation();
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -23,9 +25,12 @@ export default function Appbar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Student Library
+                        LOST(Library of Student Textbooks)
                     </Typography>
-                    <Link to="login">
+                    <Link style={{ pointerEvents: location.pathname === "/login" || "/" ? '' : 'none'}} to="add">
+                        <Button id='login' color="inherit">Add Student</Button>
+                    </Link>
+                    <Link style={{ pointerEvents: location.pathname === "/" || "/add" ? '' : 'none'}} to="login">
                     <Button id='login' color="inherit">Login</Button>
                     </Link>
                 </Toolbar>
